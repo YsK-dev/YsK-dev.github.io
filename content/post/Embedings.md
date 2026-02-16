@@ -1,6 +1,6 @@
 ---
-title: "Embeddings"
 date: 2026-02-16
+title: Emeb
 ---
 ## What are they ugh
 ### very simple approach
