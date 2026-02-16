@@ -1,3 +1,6 @@
 public/
 deploy-key
 deploy-key.pub
+scripts/publish.log
+scripts/watcher.log
+scripts/.obsidian-manifest
