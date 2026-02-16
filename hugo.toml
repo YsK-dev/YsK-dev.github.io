@@ -1,5 +1,5 @@
 baseurl = "https://YsK-dev.github.io"
-DefaultContentLanguage = "en"
+defaultContentLanguage = "en"
 title = "YsK-dev"
 pygmentsStyle = "dracula"
 pygmentsUseClasses = true
@@ -8,6 +8,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [Params]
   description = "Welcome to my blog"
+  descriptionTr = "Bloguma hoş geldiniz"
   mainSections = ["post", "posts"]
   dateFormat = "2006-01-02"
   profilePicture = "img/profile.svg"
@@ -19,17 +20,41 @@ pygmentsCodefencesGuessSyntax = true
 [taxonomies]
   tag = "tags"
 
-[[menu.main]]
-    name = "Blog"
-    url = "/post/"
+[languages]
+  [languages.en]
+    languageCode = "en"
+    languageName = "EN"
     weight = 1
+    [languages.en.params]
+      description = "Welcome to my blog"
+    [[languages.en.menu.main]]
+      name = "Blog"
+      url = "/post/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Tags"
+      url = "/tags/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "About"
+      url = "/about/"
+      weight = 3
 
-[[menu.main]]
-    name = "Tags"
-    url = "/tags/"
+  [languages.tr]
+    languageCode = "tr"
+    languageName = "TR"
     weight = 2
-
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 3
+    [languages.tr.params]
+      description = "Bloguma hoş geldiniz"
+    [[languages.tr.menu.main]]
+      name = "Blog"
+      url = "/tr/post/"
+      weight = 1
+    [[languages.tr.menu.main]]
+      name = "Etiketler"
+      url = "/tr/tags/"
+      weight = 2
+    [[languages.tr.menu.main]]
+      name = "Hakkımda"
+      url = "/tr/about/"
+      weight = 3

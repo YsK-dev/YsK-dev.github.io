@@ -1,0 +1,9 @@
+[no-posts]
+other = "Henüz yazı yok."
+
+[filtering-for]
+other = "Filtre"
+
+[reading-time]
+one = "1 dk okuma"
+other = "{{ .Count }} dk okuma"

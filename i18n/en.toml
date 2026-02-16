@@ -1,0 +1,9 @@
+[no-posts]
+other = "No posts yet."
+
+[filtering-for]
+other = "Filtering for"
+
+[reading-time]
+one = "1 min read"
+other = "{{ .Count }} min read"

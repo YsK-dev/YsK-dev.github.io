@@ -1,5 +1,5 @@
 /* ============================================
-   CSS Variables
+   CSS Variables — Dark (default)
    ============================================ */
 :root {
   --bg: #1d1f27;
@@ -11,10 +11,33 @@
   --muted: #8b949e;
   --border: #30363d;
   --card-bg: #252830;
+  --code-bg: #282a36;
+  --code-text: #f8f8f2;
+  --visited: #8b6fcb;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
   --max-width: 720px;
   --spacing: 1.5rem;
+  color-scheme: dark;
+}
+
+/* ============================================
+   CSS Variables — Light (warm cream/yellowish)
+   ============================================ */
+:root.light {
+  --bg: #f5f0e8;
+  --bg-lighter: #ece7dc;
+  --text: #3d3929;
+  --text-bright: #1a1712;
+  --accent: #b3742d;
+  --accent-hover: #9a5f1e;
+  --muted: #7a7262;
+  --border: #d5cfc3;
+  --card-bg: #ece7dc;
+  --code-bg: #e8e2d6;
+  --code-text: #3d3929;
+  --visited: #7a5ea7;
+  color-scheme: light;
 }
 
 /* ============================================
@@ -36,6 +59,7 @@ body {
   flex-direction: column;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, h3, h4, h5, h6, strong, b {
@@ -63,10 +87,10 @@ img {
 code {
   font-family: var(--font-mono);
   padding: 2px 6px;
-  background-color: #282a36;
+  background-color: var(--code-bg);
   border-radius: 3px;
   font-size: 0.9em;
-  color: #f8f8f2;
+  color: var(--code-text);
 }
 
 pre code {
@@ -294,7 +318,7 @@ ul.blog-posts li a {
 }
 
 ul.blog-posts li a:visited {
-  color: #8b6fcb;
+  color: var(--visited);
 }
 
 .blog-tags-list {
@@ -365,6 +389,80 @@ article content li {
 }
 
 /* ============================================
+   Theme Toggle
+   ============================================ */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s, border-color 0.2s;
+  vertical-align: middle;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Dark mode: show sun icon, hide moon */
+.icon-sun { display: inline-block; }
+.icon-moon { display: none; }
+
+/* Light mode: show moon icon, hide sun */
+:root.light .icon-sun { display: none; }
+:root.light .icon-moon { display: inline-block; }
+
+/* ============================================
+   Language Toggle
+   ============================================ */
+.lang-toggle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  text-decoration: none;
+}
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.lang-toggle.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--bg-lighter);
+  pointer-events: none;
+}
+
+/* Header toggles group */
+.header-toggles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+}
+
+/* Profile page toggles */
+.profile__toggles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media screen and (max-width: 600px) {
@@ -385,5 +483,23 @@ article content li {
   header {
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  header nav a {
+    margin-left: 0;
+  }
+
+  .header-toggles {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding-top: 0.5rem;
   }
 }
