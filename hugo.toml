@@ -1,4 +1,4 @@
-baseurl = "https://YsK-dev.github.io"
+baseurl = "https://ysk-dev.github.io"
 defaultContentLanguage = "en"
 title = "YsK-dev"
 pygmentsStyle = "dracula"

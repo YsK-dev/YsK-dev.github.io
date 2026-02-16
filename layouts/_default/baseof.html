@@ -25,16 +25,18 @@
       {{- if eq .Lang $.Site.Language.Lang }}
         <a class="lang-toggle active" href="#">{{ .LanguageName }}</a>
       {{- else }}
+        {{- $otherLang := .Lang }}
+        {{- $otherName := .LanguageName }}
         {{- $target := "" }}
         {{- range $.Translations }}
-          {{- if eq .Language.Lang .Lang }}
+          {{- if eq .Lang $otherLang }}
             {{- $target = .RelPermalink }}
           {{- end }}
         {{- end }}
         {{- if $target }}
-          <a class="lang-toggle" href="{{ $target }}">{{ .LanguageName }}</a>
+          <a class="lang-toggle" href="{{ $target }}">{{ $otherName }}</a>
         {{- else }}
-          <a class="lang-toggle" href="/{{ .Lang }}/">{{ .LanguageName }}</a>
+          <a class="lang-toggle" href="/{{ $otherLang }}/">{{ $otherName }}</a>
         {{- end }}
       {{- end }}
     {{- end }}
