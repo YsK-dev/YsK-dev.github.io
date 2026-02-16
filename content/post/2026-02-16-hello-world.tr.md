@@ -1,17 +1,21 @@
 ---
 title: "Merhaba Dünya"
 date: 2026-02-16
-tags: ["merhaba", "hugo", "blog"]
+tags: ["merhaba", "yapay-zeka", "blog"]
 type: post
 ---
 
-[Hugo](https://gohugo.io/) ile oluşturulmuş yeni bloguma hoş geldiniz!
+Merhaba! Ben **Yusuf Sertkaya** ve burası internetin benim köşem.
 
-## Bu nedir?
+## Neden bu blog?
 
-Bu ilk blog yazım. Bu siteyi şunları kullanarak kurdum:
+Bu alanı **yapay zeka**, **veri bilimi**, **MLOps** ve **full-stack geliştirme** alanlarında öğrendiklerimi ve ürettiklerimi paylaşmak için oluşturdum. Kaggle yarışmalarından hackathon projelerine, veri pipeline'larından web uygulamalarına kadar — bu yolculuğu belgelemek istiyorum.
 
-- **Hugo** — hızlı bir statik site oluşturucu
-- **GitHub Pages** — statik siteler için ücretsiz barındırma
+## Neler beklenmeli
 
-Daha fazla yazı için takipte kalın!
+- Uygulamalı rehberler ve anlatımlar
+- Kaggle yarışmaları ve hackathon'lardan içgörüler
+- MLOps ve Veri Mühendisliği detaylı incelemeleri
+- Full-stack proje analizleri
+
+Takipte kalın — çok daha fazlası gelecek!

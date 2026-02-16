@@ -5,6 +5,15 @@ date: 2026-02-16
 
 ## About Me
 
-Welcome to my blog! I'm YsK-dev, a developer who loves building things.
+Hey, I'm **Yusuf Sertkaya** — a versatile AI, data, and full-stack enthusiast passionate about building real-world solutions.
 
-This site is built with [Hugo](https://gohugo.io/) and hosted on [GitHub Pages](https://pages.github.com/).
+Experienced in **Kaggle competitions**, **hackathons**, and hands-on AI projects, I work across **Data Science**, **Data Engineering**, and **MLOps**, while also designing and developing full-stack applications that bring ideas to life.
+
+Always eager to collaborate, learn, and push the boundaries of applied AI and software development.
+
+### Find me on
+
+- [GitHub](https://github.com/YsK-dev)
+- [LinkedIn](https://www.linkedin.com/in/yusuf-sertkaya-87888a244/)
+- [Kaggle](https://www.kaggle.com/yusufsertkayaysk)
+- [Hugging Face](https://huggingface.co/YsK-dev)

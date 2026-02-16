@@ -7,14 +7,14 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 
 [Params]
-  description = "Welcome to my blog"
-  descriptionTr = "Bloguma hoş geldiniz"
+  description = "AI, Data & Full-Stack enthusiast building real-world solutions."
+  descriptionTr = "Gerçek dünya çözümleri üreten yapay zeka, veri ve full-stack tutkunu."
   mainSections = ["post", "posts"]
   dateFormat = "2006-01-02"
   profilePicture = "img/125422424.jpeg"
 
 [Params.author]
-  name = "YsK-dev"
+  name = "Yusuf Sertkaya"
   github = "YsK-dev"
   linkedin = "yusuf-sertkaya-87888a244"
   kaggle = "yusufsertkayaysk"
@@ -29,7 +29,7 @@ pygmentsCodefencesGuessSyntax = true
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      description = "Welcome to my blog"
+      description = "AI, Data & Full-Stack enthusiast building real-world solutions."
     [[languages.en.menu.main]]
       name = "Blog"
       url = "/post/"
@@ -48,7 +48,7 @@ pygmentsCodefencesGuessSyntax = true
     languageName = "TR"
     weight = 2
     [languages.tr.params]
-      description = "Bloguma hoş geldiniz"
+      description = "Gerçek dünya çözümleri üreten yapay zeka, veri ve full-stack tutkunu."
     [[languages.tr.menu.main]]
       name = "Blog"
       url = "/tr/post/"

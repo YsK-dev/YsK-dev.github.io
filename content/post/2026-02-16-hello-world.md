@@ -1,18 +1,21 @@
 ---
 title: "Hello World"
 date: 2026-02-16
-tags: ["hello", "hugo", "blog"]
+tags: ["hello", "ai", "blog"]
 type: post
 ---
 
-Welcome to my new blog powered by [Hugo](https://gohugo.io/) and the Beautiful Hugo theme!
+Hey there! I'm **Yusuf Sertkaya**, and this is my corner of the internet.
 
-## What is this?
+## Why this blog?
 
-This is my first blog post. I set up this site using:
+I built this space to share what I learn and build across **AI**, **Data Science**, **MLOps**, and **full-stack development**. From Kaggle competitions to hackathon projects, from data pipelines to web apps — I want to document the journey.
 
-- **Hugo** — a fast static site generator
-- **Beautiful Hugo** — a clean, minimal theme
-- **GitHub Pages** — free hosting for static sites
+## What to expect
 
-Stay tuned for more posts!
+- Hands-on tutorials and walkthroughs
+- Insights from Kaggle competitions and hackathons
+- MLOps and Data Engineering deep dives
+- Full-stack project breakdowns
+
+Stay tuned — there's a lot more coming!
