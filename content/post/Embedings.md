@@ -1,4 +1,5 @@
 ---
+title: "Embeddings"
 date: 2026-02-16
 ---
 ## What are they ugh

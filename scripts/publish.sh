@@ -108,6 +108,13 @@ $content"
     # Has front matter — convert Obsidian images, then copy
     converted=$(convert_obsidian_images "$content")
     
+    # If front matter exists but has no title, inject one
+    if ! echo "$converted" | sed -n '2,/^---$/p' | grep -q '^title:'; then
+      inject_title=$(echo "$filename" | sed 's/\.md$//' | sed 's/[-_]/ /g')
+      converted=$(echo "$converted" | sed "2i\\
+title: \"$inject_title\"")
+    fi
+    
     if [ -f "$dest" ]; then
       existing=$(cat "$dest")
       if [ "$converted" = "$existing" ]; then
