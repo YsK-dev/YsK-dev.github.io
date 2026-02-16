@@ -6,6 +6,7 @@
 OBSIDIAN_BLOG="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/blog"
 HUGO_ROOT="$HOME/Desktop/untitled folder/blog-source"
 HUGO_POSTS="$HUGO_ROOT/content/post"
+HUGO_IMAGES="$HUGO_ROOT/static/img/posts"
 LOG_FILE="$HUGO_ROOT/scripts/publish.log"
 
 log() {
@@ -24,6 +25,27 @@ if [ ! -d "$HUGO_ROOT" ]; then
 fi
 
 log "Starting publish..."
+
+# ── Ensure image directory exists ──
+mkdir -p "$HUGO_IMAGES"
+
+# ── Sync images from Obsidian to Hugo static ──
+for file in "$OBSIDIAN_BLOG"/*.{png,jpg,jpeg,gif,webp,svg,PNG,JPG,JPEG}; do
+  [ -f "$file" ] || continue
+  
+  filename=$(basename "$file")
+  dest="$HUGO_IMAGES/$filename"
+  
+  if [ -f "$dest" ]; then
+    if diff -q "$file" "$dest" > /dev/null 2>&1; then
+      continue
+    fi
+  fi
+  
+  cp "$file" "$dest"
+  log "Synced image: $filename"
+  CHANGED=true
+done
 
 # ── Sync markdown files from Obsidian to Hugo ──
 # Only copy .md files. Preserve Hugo's existing posts.
