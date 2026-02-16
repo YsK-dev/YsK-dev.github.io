@@ -11,7 +11,7 @@ pygmentsCodefencesGuessSyntax = true
   descriptionTr = "Bloguma hoş geldiniz"
   mainSections = ["post", "posts"]
   dateFormat = "2006-01-02"
-  profilePicture = "img/profile.svg"
+  profilePicture = "img/125422424.jpeg"
 
 [Params.author]
   name = "YsK-dev"
