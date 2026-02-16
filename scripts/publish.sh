@@ -39,6 +39,9 @@ fi
 
 log "Starting publish..."
 
+# Track whether anything changed
+CHANGED=false
+
 # ── Ensure image directory exists ──
 mkdir -p "$HUGO_IMAGES"
 
@@ -62,7 +65,6 @@ done
 
 # ── Sync markdown files from Obsidian to Hugo ──
 # Only copy .md files. Preserve Hugo's existing posts.
-CHANGED=false
 
 for file in "$OBSIDIAN_BLOG"/*.md; do
   [ -f "$file" ] || continue
@@ -134,17 +136,17 @@ done
 MANIFEST="$HUGO_ROOT/scripts/.obsidian-manifest"
 touch "$MANIFEST"
 
-# Build current Obsidian file list
-CURRENT_FILES=""
+# Build current Obsidian file list into a temp file (one filename per line)
+CURRENT_LIST=$(mktemp)
 for file in "$OBSIDIAN_BLOG"/*.md; do
   [ -f "$file" ] || continue
-  CURRENT_FILES="$CURRENT_FILES$(basename "$file")\n"
+  basename "$file" >> "$CURRENT_LIST"
 done
 
 # Check manifest for files that no longer exist in Obsidian
 while IFS= read -r tracked; do
   [ -z "$tracked" ] && continue
-  if ! echo -e "$CURRENT_FILES" | grep -qx "$tracked"; then
+  if ! grep -qxF "$tracked" "$CURRENT_LIST"; then
     if [ -f "$HUGO_POSTS/$tracked" ]; then
       rm "$HUGO_POSTS/$tracked"
       log "Removed (deleted from Obsidian): $tracked"
@@ -153,8 +155,9 @@ while IFS= read -r tracked; do
   fi
 done < "$MANIFEST"
 
-# Update manifest
-echo -e "$CURRENT_FILES" | sort | uniq | grep -v '^$' > "$MANIFEST"
+# Update manifest with current file list
+cp "$CURRENT_LIST" "$MANIFEST"
+rm -f "$CURRENT_LIST"
 
 # ── Build and push if anything changed ──
 if [ "$CHANGED" = true ]; then
