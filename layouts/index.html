@@ -14,19 +14,19 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       </a></li>
       {{ end }}
-      {{ with .Site.Params.author.twitter }}
-      <li><a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener" title="Twitter">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-      </a></li>
-      {{ end }}
       {{ with .Site.Params.author.linkedin }}
       <li><a href="https://linkedin.com/in/{{ . }}" target="_blank" rel="noopener" title="LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       </a></li>
       {{ end }}
-      {{ with .Site.Params.author.email }}
-      <li><a href="mailto:{{ . }}" title="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      {{ with .Site.Params.author.kaggle }}
+      <li><a href="https://www.kaggle.com/{{ . }}" target="_blank" rel="noopener" title="Kaggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.281.18.046.149.034.233-.07.352l-6.871 7.058 7.191 8.091z"/></svg>
+      </a></li>
+      {{ end }}
+      {{ with .Site.Params.author.huggingface }}
+      <li><a href="https://huggingface.co/{{ . }}" target="_blank" rel="noopener" title="Hugging Face">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 120 120" fill="currentColor"><path d="M37.6 75.7c-1.5-.8-2.1-2.7-1.3-4.2.8-1.5 2.7-2.1 4.2-1.3 3.3 1.8 7.1 2.7 11 2.7 3.8 0 7.4-.9 10.6-2.5 1.5-.8 3.4-.2 4.2 1.4.8 1.5.2 3.4-1.4 4.2-4.2 2.2-8.9 3.3-13.5 3.3-5 0-9.9-1.2-13.8-3.6z"/><circle cx="42" cy="48" r="6"/><circle cx="72" cy="48" r="6"/><path d="M60 2C28 2 2 28 2 60s26 58 58 58 58-26 58-58S92 2 60 2zm0 108C32.4 110 10 87.6 10 60S32.4 10 60 10s50 22.4 50 50-22.4 50-50 50z"/></svg>
       </a></li>
       {{ end }}
     </ul>

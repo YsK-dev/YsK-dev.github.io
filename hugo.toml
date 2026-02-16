@@ -16,6 +16,9 @@ pygmentsCodefencesGuessSyntax = true
 [Params.author]
   name = "YsK-dev"
   github = "YsK-dev"
+  linkedin = "yusuf-sertkaya-87888a244"
+  kaggle = "yusufsertkayaysk"
+  huggingface = "YsK-dev"
 
 [taxonomies]
   tag = "tags"
