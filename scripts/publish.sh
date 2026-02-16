@@ -13,6 +13,19 @@ log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
 }
 
+# ── Convert Obsidian wiki-link images to standard Markdown ──
+# Transforms ![[image.png]] → ![image](/img/posts/image.png)
+convert_obsidian_images() {
+  local text="$1"
+  # Match ![[filename.ext]] where ext is an image type
+  # First convert to standard markdown syntax
+  text=$(echo "$text" | sed -E 's/!\[\[([^]]+\.(png|jpg|jpeg|gif|webp|svg|PNG|JPG|JPEG|GIF|WEBP|SVG))\]\]/![\1](\/img\/posts\/\1)/g')
+  # Then URL-encode spaces in the parenthesized URL portion: ](...)  
+  # Use perl for the lookahead-based space replacement inside markdown image URLs
+  text=$(echo "$text" | perl -pe 's{(!\[[^\]]*\]\()([^)]+)(\))}{my ($pre,$url,$post)=($1,$2,$3); $url=~s/ /%20/g; "$pre$url$post"}ge')
+  echo "$text"
+}
+
 # ── Sanity checks ──
 if [ ! -d "$OBSIDIAN_BLOG" ]; then
   log "ERROR: Obsidian blog folder not found: $OBSIDIAN_BLOG"
@@ -67,6 +80,9 @@ for file in "$OBSIDIAN_BLOG"/*.md; do
     title=$(echo "$filename" | sed 's/\.md$//' | sed 's/[-_]/ /g')
     date=$(date '+%Y-%m-%d')
     
+    # Convert Obsidian image links to standard Markdown
+    content=$(convert_obsidian_images "$content")
+
     new_content="---
 title: \"$title\"
 date: $date
@@ -89,14 +105,17 @@ $content"
     log "Published (added front matter): $filename"
     CHANGED=true
   else
-    # Has front matter — copy as-is
+    # Has front matter — convert Obsidian images, then copy
+    converted=$(convert_obsidian_images "$content")
+    
     if [ -f "$dest" ]; then
-      if diff -q "$file" "$dest" > /dev/null 2>&1; then
+      existing=$(cat "$dest")
+      if [ "$converted" = "$existing" ]; then
         continue
       fi
     fi
     
-    cp "$file" "$dest"
+    echo "$converted" > "$dest"
     log "Published: $filename"
     CHANGED=true
   fi
