@@ -1,0 +1,40 @@
+baseurl = "https://YsK-dev.github.io"
+DefaultContentLanguage = "en"
+title = "My Blog"
+theme = "beautifulhugo"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
+[Params]
+  subtitle = "Welcome to my blog"
+  mainSections = ["post", "posts"]
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = false
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = true
+  showRelatedPosts = true
+
+[Params.author]
+  name = "YsK-dev"
+  github = "YsK-dev"
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 2
+
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 3
