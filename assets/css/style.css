@@ -443,23 +443,23 @@ article content li {
   pointer-events: none;
 }
 
-/* Header toggles group */
-.header-toggles {
-  display: inline-flex;
+/* ============================================
+   Fixed Toggles (top-right, all pages)
+   ============================================ */
+.fixed-toggles {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-left: 1rem;
-  padding-left: 1rem;
-  border-left: 1px solid var(--border);
-}
-
-/* Profile page toggles */
-.profile__toggles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 /* ============================================
@@ -496,10 +496,9 @@ article content li {
     margin-left: 0;
   }
 
-  .header-toggles {
-    margin-left: 0;
-    padding-left: 0;
-    border-left: none;
-    padding-top: 0.5rem;
+  .fixed-toggles {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.5rem;
   }
 }
