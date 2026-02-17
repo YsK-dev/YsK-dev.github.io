@@ -39,11 +39,10 @@ generate_tr_version() {
 
   local content=$(cat "$en_file")
 
-  # Extract front matter
-  local front_matter=$(echo "$content" | sed -n '1,/^---$/p' | tail -n +2)
-  # Count front matter lines (including both --- delimiters)
+  # Extract front matter lines (between the two --- delimiters, exclusive)
   local fm_end=$(echo "$content" | grep -n '^---$' | sed -n '2p' | cut -d: -f1)
-  # Extract body (everything after front matter)
+  local front_matter=$(echo "$content" | sed -n "2,$((fm_end - 1))p")
+  # Extract body (everything after second ---)
   local body=$(echo "$content" | tail -n +"$((fm_end + 1))")
 
   # Translate the title

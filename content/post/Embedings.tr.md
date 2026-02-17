@@ -2,7 +2,6 @@
 date: 2026-02-16
 title: "Emeb"
 ---
----
 ## Bunlar ne ah
 ### çok basit bir yaklaşım
 
