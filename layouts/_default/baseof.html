@@ -48,7 +48,7 @@
 
   {{ if not .IsHome }}
   <header>
-    <a href="{{ .Site.BaseURL | relLangURL }}" class="site-title">{{ .Site.Title }}</a>
+    <a href="{{ .Site.BaseURL | relLangURL }}" class="site-title">{{ .Site.Params.author.name }}</a>
     <nav>
       {{ range .Site.Menus.main }}
         <a href="{{ .URL }}">{{ .Name }}</a>
