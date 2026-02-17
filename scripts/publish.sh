@@ -8,9 +8,103 @@ HUGO_ROOT="$HOME/Desktop/untitled folder/blog-source"
 HUGO_POSTS="$HUGO_ROOT/content/post"
 HUGO_IMAGES="$HUGO_ROOT/static/img/posts"
 LOG_FILE="$HUGO_ROOT/scripts/publish.log"
+TRANS_BIN="/opt/homebrew/bin/trans"
 
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
+}
+
+# ── Translate text from English to Turkish ──
+translate_to_tr() {
+  local text="$1"
+  # Skip empty text
+  [ -z "$text" ] && echo "" && return
+  # Use translate-shell; -b = brief mode (translation only)
+  local result
+  result=$(echo "$text" | "$TRANS_BIN" -b -no-ansi :tr 2>/dev/null)
+  if [ $? -ne 0 ] || [ -z "$result" ]; then
+    # Fallback to original if translation fails
+    echo "$text"
+  else
+    echo "$result"
+  fi
+}
+
+# ── Generate a Turkish (.tr.md) version of a post ──
+generate_tr_version() {
+  local en_file="$1"
+  local filename=$(basename "$en_file")
+  local tr_filename="${filename%.md}.tr.md"
+  local tr_dest="$HUGO_POSTS/$tr_filename"
+
+  local content=$(cat "$en_file")
+
+  # Extract front matter
+  local front_matter=$(echo "$content" | sed -n '1,/^---$/p' | tail -n +2)
+  # Count front matter lines (including both --- delimiters)
+  local fm_end=$(echo "$content" | grep -n '^---$' | sed -n '2p' | cut -d: -f1)
+  # Extract body (everything after front matter)
+  local body=$(echo "$content" | tail -n +"$((fm_end + 1))")
+
+  # Translate the title
+  local en_title=$(echo "$front_matter" | grep '^title:' | sed 's/^title: *"*//' | sed 's/"*$//')
+  local tr_title=""
+  if [ -n "$en_title" ]; then
+    tr_title=$(translate_to_tr "$en_title")
+    log "  Translated title: '$en_title' → '$tr_title'"
+  fi
+
+  # Translate the body — skip image lines and empty lines, translate text
+  local tr_body=""
+  if [ -n "$body" ]; then
+    # Separate image/link lines from text, only translate text portions
+    local tmp_in=$(mktemp)
+    local tmp_out=$(mktemp)
+    echo "$body" > "$tmp_in"
+    
+    while IFS= read -r line || [ -n "$line" ]; do
+      # Skip empty lines, image lines, raw URLs
+      if [ -z "$line" ] || echo "$line" | grep -qE '^\!\[|^https?://|^$'; then
+        echo "$line" >> "$tmp_out"
+      else
+        # Translate this line
+        local translated
+        translated=$(echo "$line" | "$TRANS_BIN" -b -no-ansi :tr 2>/dev/null)
+        if [ -z "$translated" ]; then
+          echo "$line" >> "$tmp_out"
+        else
+          echo "$translated" >> "$tmp_out"
+        fi
+      fi
+    done < "$tmp_in"
+    
+    tr_body=$(cat "$tmp_out")
+    rm -f "$tmp_in" "$tmp_out"
+  fi
+
+  # Rebuild front matter with translated title
+  local tr_front_matter
+  if [ -n "$tr_title" ]; then
+    tr_front_matter=$(echo "$front_matter" | sed "s|^title:.*|title: \"$tr_title\"|")
+  else
+    tr_front_matter="$front_matter"
+  fi
+
+  local tr_content="---
+$tr_front_matter
+---
+$tr_body"
+
+  # Only write if content changed
+  if [ -f "$tr_dest" ]; then
+    local existing=$(cat "$tr_dest")
+    if [ "$tr_content" = "$existing" ]; then
+      return
+    fi
+  fi
+
+  echo "$tr_content" > "$tr_dest"
+  log "Generated TR translation: $tr_filename"
 }
 
 # ── Convert Obsidian wiki-link images to standard Markdown ──
@@ -106,6 +200,8 @@ $content"
     echo "$new_content" > "$dest"
     log "Published (added front matter): $filename"
     CHANGED=true
+    # Generate Turkish translation
+    generate_tr_version "$dest"
   else
     # Has front matter — convert Obsidian images, then copy
     converted=$(convert_obsidian_images "$content")
@@ -126,6 +222,23 @@ title: \"$inject_title\"")
     
     echo "$converted" > "$dest"
     log "Published: $filename"
+    CHANGED=true
+    # Generate Turkish translation
+    generate_tr_version "$dest"
+  fi
+done
+
+# ── Generate missing Turkish translations ──
+for file in "$HUGO_POSTS"/*.md; do
+  [ -f "$file" ] || continue
+  filename=$(basename "$file")
+  # Skip .tr.md files themselves and manually created files not from Obsidian
+  case "$filename" in *.tr.md) continue;; esac
+  
+  tr_file="${file%.md}.tr.md"
+  if [ ! -f "$tr_file" ]; then
+    log "Missing TR translation for: $filename"
+    generate_tr_version "$file"
     CHANGED=true
   fi
 done
@@ -151,6 +264,12 @@ while IFS= read -r tracked; do
       rm "$HUGO_POSTS/$tracked"
       log "Removed (deleted from Obsidian): $tracked"
       CHANGED=true
+    fi
+    # Also remove the Turkish translation
+    tr_file="${tracked%.md}.tr.md"
+    if [ -f "$HUGO_POSTS/$tr_file" ]; then
+      rm "$HUGO_POSTS/$tr_file"
+      log "Removed TR translation: $tr_file"
     fi
   fi
 done < "$MANIFEST"
