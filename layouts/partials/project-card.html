@@ -1,0 +1,13 @@
+{{- $p := .p -}}
+{{- $lang := .lang -}}
+<article class="card">
+  <h3><a href="{{ $p.url }}" target="_blank" rel="noopener">{{ index $p.title $lang }}</a></h3>
+  <p>{{ index $p.text $lang }}</p>
+  {{- with $p.tech }}
+  <ul class="card__tech">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  {{- end }}
+  <p class="card__links">
+    <a href="{{ $p.url }}" target="_blank" rel="noopener">{{ i18n "code" }}</a>
+    {{- range $p.extra }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ index .label $lang }}</a>{{ end }}
+  </p>
+</article>

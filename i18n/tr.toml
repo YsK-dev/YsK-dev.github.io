@@ -2,8 +2,38 @@
 other = "Henüz yazı yok."
 
 [filtering-for]
-other = "Filtre"
+other = "Etiket:"
 
 [reading-time]
 one = "1 dk okuma"
 other = "{{ .Count }} dk okuma"
+
+[selected-projects]
+other = "Seçili projeler"
+
+[all-projects]
+other = "Tüm projeler"
+
+[more-projects]
+other = "Diğer projeler"
+
+[models]
+other = "Hugging Face'teki modellerim"
+
+[latest-posts]
+other = "Son yazılar"
+
+[all-posts]
+other = "Tüm yazılar"
+
+[code]
+other = "Kod"
+
+[not-found]
+other = "Bu sayfa yok."
+
+[back-home]
+other = "Ana sayfaya dön"
+
+[built-with]
+other = "<a href=\"https://gohugo.io/\">Hugo</a> ile yapıldı"

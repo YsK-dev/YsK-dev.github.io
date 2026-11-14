@@ -1,0 +1,137 @@
+# Projects shown on the home page (featured) and on the Projects page (featured + more).
+# Each text has an English (en) and a Turkish (tr) version.
+
+featured:
+  - title:
+      en: "Local document Q&A (RAG)"
+      tr: "Yerel belge soru-cevap (RAG)"
+    url: "https://github.com/YsK-dev/Rag-case-study-"
+    text:
+      en: "Ask questions about your own documents, fully on your machine. Hybrid search (semantic + BM25) and streamed answers with sources, evaluated with an LLM judge."
+      tr: "Kendi belgelerinize soru sorun; her şey kendi bilgisayarınızda çalışır. Anlama ve kelimeye göre aramayı birlikte kullanır, cevabı kaynaklarıyla verir. Cevapların kalitesi bir dil modeline puanlatıldı."
+    tech: ["FastAPI", "Ollama", "ChromaDB"]
+
+  - title:
+      en: "Multi-agent assistant"
+      tr: "Çok ajanlı asistan"
+    url: "https://github.com/YsK-dev/AgentsCase"
+    text:
+      en: "A supervisor agent sends each question to the agents it needs: researcher, analyst, editor. Web search, restricted Python execution and unit tests."
+      tr: "Bir yönetici ajan, her soruyu gereken ajanlara gönderir: araştırmacı, analist, editör. Web'de arama yapar, Python kodunu kısıtlı bir ortamda çalıştırır. Birim testleri vardır."
+    tech: ["LangGraph", "Ollama", "SearXNG"]
+
+  - title:
+      en: "Zima: health advice for people over 70"
+      tr: "Zima: 70 yaş üstüne sağlık önerileri"
+    url: "https://github.com/YsK-dev/zima"
+    text:
+      en: "A small assistant that gives everyday health advice to older people. Built by generating a synthetic dataset and fine-tuning Qwen2.5-1.5B with LoRA."
+      tr: "Yaşlılara günlük sağlık önerileri veren küçük bir asistan. Önce yapay bir veri seti üretildi, sonra Qwen2.5-1.5B modeli bu veriyle LoRA yöntemiyle ince ayarlandı."
+    tech: ["Unsloth", "Transformers", "Gradio"]
+    extra:
+      - label: { en: "Model", tr: "Model" }
+        url: "https://huggingface.co/YsK-dev/zima-qwen-geriatric-1.5b"
+      - label: { en: "Dataset", tr: "Veri seti" }
+        url: "https://huggingface.co/datasets/YsK-dev/geriatric-health-advice"
+
+  - title:
+      en: "Finance sentiment"
+      tr: "Finans haberlerinde duygu analizi"
+    url: "https://github.com/YsK-dev/finance-sentiment-app"
+    text:
+      en: "Collects news, RSS feeds and YouTube transcripts about a stock and labels each one positive, negative or neutral with FinBERT."
+      tr: "Bir hisse hakkındaki haberleri, RSS akışlarını ve YouTube video metinlerini toplar. Her birini FinBERT ile olumlu, olumsuz ya da nötr diye etiketler."
+    tech: ["FastAPI", "React", "FinBERT"]
+
+  - title:
+      en: "Datathon 2025"
+      tr: "Datathon 2025"
+    url: "https://github.com/YsK-dev/datahon25"
+    text:
+      en: "Predicts how much each e-commerce session is worth from the user's events in that session."
+      tr: "Bir e-ticaret oturumunun ne kadar değerli olduğunu, kullanıcının o oturumdaki hareketlerinden tahmin eder."
+    tech: ["pandas", "CatBoost"]
+
+  - title:
+      en: "Movie recommender"
+      tr: "Film öneri sistemi"
+    url: "https://github.com/YsK-dev/Bigdata-ALS-Pyspark"
+    text:
+      en: "Recommends movies from what similar users rated (ALS collaborative filtering), on Spark."
+      tr: "Benzer kullanıcıların verdiği puanlara bakarak film önerir (ALS yöntemi). Spark üzerinde çalışır."
+    tech: ["PySpark"]
+
+more:
+  - title:
+      en: "Turkish news assistant"
+      tr: "Türkçe haber asistanı"
+    url: "https://github.com/YsK-dev/AutoScraperNewsRss"
+    text:
+      en: "Collects Turkish news from RSS feeds and news APIs and answers questions about it with RAG."
+      tr: "RSS akışlarından ve haber servislerinden Türkçe haber toplar. Sorulara bu haberlere dayanarak cevap verir (RAG)."
+    tech: ["sentence-transformers", "Streamlit"]
+
+  - title:
+      en: "Smart pill dispenser"
+      tr: "Akıllı ilaç dağıtıcı"
+    url: "https://github.com/YsK-dev/ZimaPharm"
+    text:
+      en: "Prototype. A local LLM understands chat commands; a Raspberry Pi drives the servos, checks that the pill was taken and sends Telegram alerts."
+      tr: "Prototip. Yerel bir dil modeli sohbetle verilen komutları anlar. Raspberry Pi motorları çalıştırır, ilacın alınıp alınmadığını kontrol eder ve Telegram'dan uyarı gönderir."
+    tech: ["Raspberry Pi", "Ollama", "Flask"]
+
+  - title:
+      en: "Used-car price estimate"
+      tr: "İkinci el araç fiyat tahmini"
+    url: "https://github.com/YsK-dev/ScrapeDrivePredict"
+    text:
+      en: "Collects Arabam.com listings and estimates a car's price with a random-forest model. The web app takes a listing link."
+      tr: "Arabam.com ilanlarını toplar ve bir aracın fiyatını rastgele orman (random forest) modeliyle tahmin eder. Web uygulamasına ilan bağlantısını vermeniz yeterli."
+    tech: ["Selenium", "scikit-learn", "Flask"]
+
+  - title:
+      en: "Job application tracker"
+      tr: "İş başvurusu takipçisi"
+    url: "https://github.com/YsK-dev/Tracker"
+    text:
+      en: "Reads job-application emails and uses an LLM to label each reply: positive, negative, neutral or needs follow-up."
+      tr: "İş başvurusu e-postalarını okur. Her cevabı bir dil modeliyle etiketler: olumlu, olumsuz, nötr ya da takip gerekiyor."
+    tech: ["Streamlit", "LLM", "Plotly"]
+
+  - title:
+      en: "Football data scraper"
+      tr: "Futbol verisi toplayıcı"
+    url: "https://github.com/YsK-dev/Scraper"
+    text:
+      en: "Match and player statistics from FBref for the top five European leagues and the Turkish Süper Lig, with a desktop app and an expected-goals (xG) simulation."
+      tr: "Avrupa'nın beş büyük ligi ve Süper Lig için FBref'ten maç ve oyuncu istatistikleri toplar. Masaüstü arayüzü ve beklenen gol (xG) simülasyonu vardır."
+    tech: ["BeautifulSoup", "PyQt5", "pandas"]
+
+  - title:
+      en: "Neural network from scratch"
+      tr: "Sıfırdan sinir ağı"
+    url: "https://github.com/YsK-dev/MnistFromScrtath"
+    text:
+      en: "A handwritten-digit classifier for MNIST written with NumPy only, without a deep-learning library."
+      tr: "El yazısı rakamları tanıyan bir sinir ağı. Derin öğrenme kütüphanesi kullanmadan, yalnızca NumPy ile yazıldı."
+    tech: ["NumPy"]
+
+models:
+  - title: "TurkWeb-Edu Classifier"
+    url: "https://huggingface.co/YsK-dev/TurkWeb-Edu-Classifier-V5"
+    text:
+      en: "Scores the educational quality (0–5) of Turkish web text. A Turkish counterpart of the FineWeb-Edu classifier."
+      tr: "Türkçe web metinlerinin eğitim değerini 0 ile 5 arasında puanlar. FineWeb-Edu sınıflandırıcısının Türkçe karşılığıdır."
+  - title: "TurkWeb-Edu Student"
+    url: "https://huggingface.co/YsK-dev/TurkWeb-Edu-Student-Qwen1.5B-SOTA"
+    text:
+      en: "A 1.5B Qwen model that writes its reasoning in Turkish before it gives the score."
+      tr: "Puanı vermeden önce gerekçesini Türkçe yazan, 1,5 milyar parametreli bir Qwen modeli."
+  - title: "Zima"
+    url: "https://huggingface.co/YsK-dev/zima-qwen-geriatric-1.5b"
+    text:
+      en: "The fine-tuned Zima model, with its training dataset."
+      tr: "İnce ayarlı Zima modeli ve eğitim veri seti."
+    extra:
+      - label: { en: "Dataset", tr: "Veri seti" }
+        url: "https://huggingface.co/datasets/YsK-dev/geriatric-health-advice"

@@ -1,19 +1,38 @@
 ---
 title: "Hakkımda"
 date: 2026-02-16
+description: "Yusuf Sertkaya, yapay zekâ mühendisi: dil modeli uygulamaları, RAG, yapay zekâ ajanları, küçük modellere ince ayar ve Türkçe metin işleme."
 ---
 
-## Hakkımda
+Ben **Yusuf Sertkaya**, yapay zekâ mühendisiyim. Dil modelleri üzerine uygulamalar geliştiriyorum
+ve küçük modelleri tek bir işi iyi yapacak şekilde eğitiyorum.
 
-Merhaba, ben **Yusuf Sertkaya** — gerçek dünya çözümleri üretmeye tutkulu, çok yönlü bir yapay zeka, veri ve full-stack meraklısıyım.
+## Neler yapıyorum
 
-**Kaggle yarışmaları**, **hackathon'lar** ve uygulamalı yapay zeka projelerinde deneyimliyim. **Veri Bilimi**, **Veri Mühendisliği** ve **MLOps** alanlarında çalışıyor, aynı zamanda fikirleri hayata geçiren full-stack uygulamalar tasarlıyor ve geliştiriyorum.
+- **Belgelerden cevap bulan sistemler (RAG).** Kendi dosyalarınızda arama yapıp cevabı, dayandığı
+  bölümleri göstererek veren sistemler. Böylece her cevap kontrol edilebilir.
+  [Örnek](https://github.com/YsK-dev/Rag-case-study-)
+- **Yapay zekâ ajanları.** Bir işi birkaç ajanın paylaştığı asistanlar; örneğin bir araştırmacı,
+  bir analist ve bir editör. [Örnek](https://github.com/YsK-dev/AgentsCase)
+- **Küçük modellere ince ayar.** Eğitim verisi üretmek ve 1,5 milyar parametre civarındaki modelleri
+  LoRA yöntemiyle eğitmek. [Örnek](https://github.com/YsK-dev/zima)
+- **Türkçe metin işleme.** Türkçe metinler için modeller ve veri; örneğin Türkçe web sayfalarının
+  eğitim değerini puanlayan bir sınıflandırıcı.
+  [Model](https://huggingface.co/YsK-dev/TurkWeb-Edu-Classifier-V5)
 
-Her zaman iş birliği yapmaya, öğrenmeye ve uygulamalı yapay zeka ile yazılım geliştirmenin sınırlarını zorlamaya hazırım.
+Kaggle yarışmalarına ve datathon'lara da katılıyorum.
 
-### Beni bulun
+Herkese açık bütün çalışmalarım [Projeler](/tr/projects/) sayfasında.
 
-- [GitHub](https://github.com/YsK-dev)
+## Kullandığım araçlar
+
+Python · PyTorch · Hugging Face Transformers · LangChain / LangGraph · Ollama · FastAPI ·
+ChromaDB · scikit-learn · PySpark · Docker · AWS
+
+## İletişim
+
+- E-posta: [yusufsertkayaysk@gmail.com](mailto:yusufsertkayaysk@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/yusuf-sertkaya-87888a244/)
+- [GitHub](https://github.com/YsK-dev)
 - [Kaggle](https://www.kaggle.com/yusufsertkayaysk)
 - [Hugging Face](https://huggingface.co/YsK-dev)

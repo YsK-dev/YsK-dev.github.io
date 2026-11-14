@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{ $lang := site.Language.Lang }}
+<article class="projects-page">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <div class="cards">
+    {{ range site.Data.projects.featured }}
+      {{ partial "project-card.html" (dict "p" . "lang" $lang) }}
+    {{ end }}
+  </div>
+  <h2>{{ i18n "more-projects" }}</h2>
+  <div class="cards">
+    {{ range site.Data.projects.more }}
+      {{ partial "project-card.html" (dict "p" . "lang" $lang) }}
+    {{ end }}
+  </div>
+  <h2>{{ i18n "models" }}</h2>
+  <ul class="model-list">
+    {{ range site.Data.projects.models }}
+    <li>
+      <a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>
+      <span>{{ index .text $lang }}</span>
+      {{ range .extra }} · <a href="{{ .url }}" target="_blank" rel="noopener">{{ index .label $lang }}</a>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</article>
+{{ end }}

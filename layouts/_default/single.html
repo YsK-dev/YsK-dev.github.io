@@ -1,22 +1,24 @@
 {{ define "main" }}
 <article>
-  {{ if not .Params.menu }}
   <h1>{{ .Title }}</h1>
+  {{ if in site.Params.mainSections .Section }}
   <p class="byline">
     <time datetime='{{ .Date.Format "2006-01-02" }}'>
       {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
     </time>
     {{ with .Params.author }}· {{ . }}{{ end }}
-    · {{ .ReadingTime }} min read
+    · {{ i18n "reading-time" .ReadingTime }}
   </p>
   {{ end }}
   <content>
     {{ .Content }}
   </content>
+  {{ with .GetTerms "tags" }}
   <p class="post-tags">
-    {{ range (.GetTerms "tags") }}
+    {{ range . }}
       <a class="blog-tags" href="{{ .RelPermalink }}">#{{ lower .LinkTitle }}</a>
     {{ end }}
   </p>
+  {{ end }}
 </article>
 {{ end }}
