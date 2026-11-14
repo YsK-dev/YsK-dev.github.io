@@ -1,8 +1,13 @@
 {{ define "main" }}
-<content>
-  {{ if .Data.Singular }}
-    <h3 class="blog-filter">Filtering for "{{ .Title }}"</h3>
-  {{ end }}
+<div class="content">
+  <h1 class="list-title">{{ if eq .Kind "term" }}{{ i18n "filtering-for" }} #{{ lower .Title }}{{ else }}{{ .Title }}{{ end }}</h1>
+  {{ if eq .Kind "taxonomy" }}
+  <ul class="tag-list">
+    {{ range .Data.Terms.ByCount }}
+    <li><a class="blog-tags" href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a> <span>({{ .Count }})</span></li>
+    {{ end }}
+  </ul>
+  {{ else }}
   <ul class="blog-posts">
     {{ range .Pages }}
     <li>
@@ -12,21 +17,22 @@
         </time>
       </span>
       {{ if .Params.link }}
-        <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
+        <a href="{{ .Params.link }}" target="_blank" rel="noopener">{{ .Title }} ↪</a>
       {{ else }}
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{ end }}
     </li>
     {{ else }}
-    <li>No posts yet.</li>
+    <li>{{ i18n "no-posts" }}</li>
     {{ end }}
   </ul>
-  {{ if not .Data.Singular }}
+  {{ end }}
+  {{ if eq .Kind "section" }}
     <div class="blog-tags-list">
       {{ range .Site.Taxonomies.tags }}
         <a class="blog-tags" href="{{ .Page.RelPermalink }}">#{{ lower .Page.Title }}</a>
       {{ end }}
     </div>
   {{ end }}
-</content>
+</div>
 {{ end }}

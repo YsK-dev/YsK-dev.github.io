@@ -1,0 +1,7 @@
+{{- /* Square profile photo, so the small card type; the large type would crop it. */ -}}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ .Store.Get "description" }}">
+{{- with site.Params.images }}
+<meta name="twitter:image" content="{{ index . 0 | absURL }}">
+{{- end }}

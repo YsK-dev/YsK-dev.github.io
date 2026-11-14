@@ -1,17 +1,18 @@
 baseurl = "https://ysk-dev.github.io"
 defaultContentLanguage = "en"
-title = "YsK-dev"
-pygmentsStyle = "dracula"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+title = "Yusuf Sertkaya"
+enableRobotsTXT = true
+capitalizeListTitles = false
+
+[markup.highlight]
+  noClasses = false  # colours come from assets/css/syntax.css, for both themes
 
 [Params]
-  description = "AI, Data & Full-Stack enthusiast building real-world solutions."
-  descriptionTr = "Gerçek dünya çözümleri üreten yapay zeka, veri ve full-stack tutkunu."
   mainSections = ["post", "posts"]
   dateFormat = "2006-01-02"
   profilePicture = "img/125422424.jpeg"
+  images = ["img/125422424.jpeg"]  # preview image when a page is shared
+  email = "yusufsertkayaysk@gmail.com"
 
 [Params.author]
   name = "Yusuf Sertkaya"
@@ -25,18 +26,20 @@ pygmentsCodefencesGuessSyntax = true
 
 [languages]
   [languages.en]
-    languageCode = "en"
+    languageCode = "en-US"
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      description = "AI, Data & Full-Stack enthusiast building real-world solutions."
+      role = "AI Engineer · LLM, RAG, fine-tuning"
+      description = "AI engineer. I build language-model applications in Python: question answering over documents (RAG), multi-agent assistants and small fine-tuned models. I also work on Turkish NLP."
+      intro = "I build practical AI systems in Python: question answering over documents with retrieval-augmented generation (RAG), multi-agent assistants, and small language models fine-tuned for a single task. I also work on Turkish-language NLP."
+    [[languages.en.menu.main]]
+      name = "Projects"
+      url = "/projects/"
+      weight = 1
     [[languages.en.menu.main]]
       name = "Blog"
       url = "/post/"
-      weight = 1
-    [[languages.en.menu.main]]
-      name = "Tags"
-      url = "/tags/"
       weight = 2
     [[languages.en.menu.main]]
       name = "About"
@@ -44,18 +47,20 @@ pygmentsCodefencesGuessSyntax = true
       weight = 3
 
   [languages.tr]
-    languageCode = "tr"
+    languageCode = "tr-TR"
     languageName = "TR"
     weight = 2
     [languages.tr.params]
-      description = "Gerçek dünya çözümleri üreten yapay zeka, veri ve full-stack tutkunu."
+      role = "Yapay Zekâ Mühendisi · LLM, RAG, ince ayar"
+      description = "Yapay zekâ mühendisi. Python ile dil modeli uygulamaları geliştiriyorum: belgelerden cevap bulan sistemler (RAG), birlikte çalışan yapay zekâ ajanları ve tek bir iş için eğitilmiş küçük modeller. Türkçe metinler üzerinde de çalışıyorum."
+      intro = "Python ile işe yarayan yapay zekâ sistemleri kuruyorum: belgelerinizde arama yapıp sorularınıza kaynak göstererek cevap veren sistemler (RAG), bir işi aralarında bölüşen yapay zekâ ajanları ve tek bir iş için eğitilmiş küçük dil modelleri. Türkçe metinler üzerinde de çalışıyorum."
+    [[languages.tr.menu.main]]
+      name = "Projeler"
+      url = "/tr/projects/"
+      weight = 1
     [[languages.tr.menu.main]]
       name = "Blog"
       url = "/tr/post/"
-      weight = 1
-    [[languages.tr.menu.main]]
-      name = "Etiketler"
-      url = "/tr/tags/"
       weight = 2
     [[languages.tr.menu.main]]
       name = "Hakkımda"

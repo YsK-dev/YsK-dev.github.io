@@ -2,8 +2,41 @@
 other = "No posts yet."
 
 [filtering-for]
-other = "Filtering for"
+other = "Tag"
 
 [reading-time]
 one = "1 min read"
 other = "{{ .Count }} min read"
+
+[selected-projects]
+other = "Main projects"
+
+[all-projects]
+other = "All projects"
+
+[more-projects]
+other = "More projects"
+
+[models]
+other = "Models on Hugging Face"
+
+[latest-posts]
+other = "Latest posts"
+
+[all-posts]
+other = "All posts"
+
+[code]
+other = "Code"
+
+[not-found]
+other = "This page does not exist."
+
+[back-home]
+other = "Back to the home page"
+
+[built-with]
+other = "Built with <a href=\"https://gohugo.io/\">Hugo</a>"
+
+[toggle-theme]
+other = "Switch between light and dark theme"
