@@ -16,8 +16,8 @@ featured:
       tr: "Çok ajanlı asistan"
     url: "https://github.com/YsK-dev/AgentsCase"
     text:
-      en: "A supervisor agent sends each question to the agents it needs: researcher, analyst, editor. It can search the web and run short Python calculations in a separate, restricted process. 83 unit tests."
-      tr: "Bir yönetici ajan, her soruyu gereken ajanlara gönderir: araştırmacı, analist, editör. Sistem web'de arama yapabilir ve kısa Python hesaplarını ayrı, kısıtlı bir süreçte çalıştırabilir. 83 birim testi vardır."
+      en: "A supervisor agent sends each question to the agents it needs: researcher, analyst, editor. It can search the web and run short Python calculations in a separate, restricted process. 93 unit tests."
+      tr: "Bir yönetici ajan, her soruyu gereken ajanlara gönderir: araştırmacı, analist, editör. Sistem web'de arama yapabilir ve kısa Python hesaplarını ayrı, kısıtlı bir süreçte çalıştırabilir. 93 birim testi vardır."
     tech: ["LangGraph", "Ollama", "SearXNG"]
 
   - title:
