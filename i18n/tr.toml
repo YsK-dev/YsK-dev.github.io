@@ -2,14 +2,14 @@
 other = "Henüz yazı yok."
 
 [filtering-for]
-other = "Etiket:"
+other = "Etiket"
 
 [reading-time]
 one = "1 dk okuma"
 other = "{{ .Count }} dk okuma"
 
 [selected-projects]
-other = "Seçili projeler"
+other = "Öne çıkan projeler"
 
 [all-projects]
 other = "Tüm projeler"
@@ -37,3 +37,6 @@ other = "Ana sayfaya dön"
 
 [built-with]
 other = "<a href=\"https://gohugo.io/\">Hugo</a> ile yapıldı"
+
+[toggle-theme]
+other = "Açık ve koyu tema arasında geçiş yap"

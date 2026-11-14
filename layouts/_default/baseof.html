@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ site.Title }} · {{ site.Params.role }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ site.Title }} · {{ site.Params.role }}{{ else if eq .Kind "404" }}404 · {{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   {{- $description := site.Params.description }}
   {{- if not .IsHome }}{{ with .Description }}{{ $description = . }}{{ else }}{{ with .Summary }}{{ $description = . | plainify | htmlUnescape | replaceRE `\s+` " " | truncate 160 }}{{ end }}{{ end }}{{ end }}
+  {{- .Store.Set "description" $description }}
   <meta name="description" content="{{ $description }}">
   <meta name="author" content="{{ site.Params.author.name }}">
+  {{- if eq .Kind "404" }}
+  <meta name="robots" content="noindex">
+  {{- else }}
   <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
-  <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- if eq .Language.Lang "en" }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- end }}
   {{- end }}
   {{ partial "opengraph.html" . }}
-  {{ partial "twitter_cards.html" . }}
+  {{ partial "twitter.html" . }}
+  {{- end }}
   <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
   {{ with .OutputFormats.Get "rss" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
@@ -22,7 +30,8 @@
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || 'dark';
+      var t = 'dark';
+      try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {}
       if (t === 'light') document.documentElement.classList.add('light');
     })();
   </script>
@@ -31,9 +40,10 @@
 
   {{/* ---- Fixed top-right toggles (on EVERY page) ---- */}}
   <div class="fixed-toggles" id="fixed-toggles">
+    {{- if ne .Kind "404" }}{{/* the 404 page shows both languages itself */}}
     {{- range .Site.Languages }}
       {{- if eq .Lang $.Site.Language.Lang }}
-        <span class="lang-toggle active" aria-current="true">{{ .LanguageName }}</span>
+        <span class="lang-toggle active" aria-current="true" lang="{{ .Lang }}">{{ .LanguageName }}</span>
       {{- else }}
         {{- $otherLang := .Lang }}
         {{- $otherName := .LanguageName }}
@@ -43,14 +53,15 @@
             {{- $target = .RelPermalink }}
           {{- end }}
         {{- end }}
-        {{- if $target }}
-          <a class="lang-toggle" href="{{ $target }}">{{ $otherName }}</a>
-        {{- else }}
-          <a class="lang-toggle" href="/{{ $otherLang }}/">{{ $otherName }}</a>
+        {{- if not $target }}
+          {{- /* No translation of this page: go to the home page of the other language. The first language lives at /. */}}
+          {{- $target = cond (eq $otherLang (index site.Languages 0).Lang) "/" (printf "/%s/" $otherLang) }}
         {{- end }}
+          <a class="lang-toggle" href="{{ $target }}" lang="{{ $otherLang }}" hreflang="{{ $otherLang }}" aria-label="{{ if eq $otherLang "tr" }}Türkçe{{ else }}English{{ end }}">{{ $otherName }}</a>
       {{- end }}
     {{- end }}
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+    {{- end }}
+    <button class="theme-toggle" id="theme-toggle" aria-label="{{ i18n "toggle-theme" }}">
       <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
@@ -82,7 +93,7 @@
       toggle.addEventListener('click', function() {
         document.documentElement.classList.toggle('light');
         var isLight = document.documentElement.classList.contains('light');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) {}
       });
     })();
   </script>

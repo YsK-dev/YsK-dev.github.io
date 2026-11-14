@@ -2,14 +2,14 @@
 other = "No posts yet."
 
 [filtering-for]
-other = "Tag:"
+other = "Tag"
 
 [reading-time]
 one = "1 min read"
 other = "{{ .Count }} min read"
 
 [selected-projects]
-other = "Selected projects"
+other = "Main projects"
 
 [all-projects]
 other = "All projects"
@@ -37,3 +37,6 @@ other = "Back to the home page"
 
 [built-with]
 other = "Built with <a href=\"https://gohugo.io/\">Hugo</a>"
+
+[toggle-theme]
+other = "Switch between light and dark theme"

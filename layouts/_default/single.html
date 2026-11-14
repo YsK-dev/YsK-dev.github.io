@@ -10,9 +10,9 @@
     · {{ i18n "reading-time" .ReadingTime }}
   </p>
   {{ end }}
-  <content>
+  <div class="content">
     {{ .Content }}
-  </content>
+  </div>
   {{ with .GetTerms "tags" }}
   <p class="post-tags">
     {{ range . }}

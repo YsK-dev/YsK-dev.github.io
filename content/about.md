@@ -15,14 +15,14 @@ train small models to do one job well.
 - **AI agents.** Assistants in which several agents split a task, for example a researcher, an
   analyst and an editor. [Example](https://github.com/YsK-dev/AgentsCase)
 - **Fine-tuning small models.** Generating training data and fine-tuning models of about 1.5
-  billion parameters with LoRA. [Example](https://github.com/YsK-dev/zima)
+  billion parameters with LoRA (a method that trains only a small add-on to the model). [Example](https://github.com/YsK-dev/zima)
 - **Turkish NLP.** Models and data for Turkish text, such as a classifier that scores the
   educational value of Turkish web pages.
   [Model](https://huggingface.co/YsK-dev/TurkWeb-Edu-Classifier-V5)
 
-I also take part in Kaggle competitions and datathons.
+I also take part in Kaggle competitions and hackathons, such as Datathon 2025.
 
-All my public work is on the [Projects](/projects/) page.
+My main projects are on the [Projects](/projects/) page.
 
 ## Tools
 

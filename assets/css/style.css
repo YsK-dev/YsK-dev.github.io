@@ -13,7 +13,7 @@
   --card-bg: #252830;
   --code-bg: #282a36;
   --code-text: #f8f8f2;
-  --visited: #8b6fcb;
+  --visited: #a08ae0;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
   --max-width: 720px;
@@ -457,9 +457,20 @@ a.blog-tags:hover {
   color: var(--accent);
 }
 
-h3.blog-filter {
+h1.list-title {
+  margin-bottom: 1.25rem;
+}
+
+ul.tag-list {
+  list-style: none;
+  padding: 0;
+}
+ul.tag-list li {
   margin-bottom: 0.5rem;
+}
+ul.tag-list span {
   color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* ============================================
@@ -476,28 +487,28 @@ article h1 {
   margin-bottom: 2rem;
 }
 
-article content {
+article .content {
   display: block;
   line-height: 1.8;
 }
 
-article content p {
+article .content p {
   margin-bottom: 1.25rem;
 }
 
-article content h2 {
+article .content h2 {
   margin-top: 2rem;
 }
 
-article content h3 {
+article .content h3 {
   margin-top: 1.5rem;
 }
 
-article content ul, article content ol {
+article .content ul, article .content ol {
   padding-left: 1.5rem;
 }
 
-article content li {
+article .content li {
   margin-bottom: 0.5rem;
 }
 
@@ -600,6 +611,11 @@ article content li {
   }
 
   .profile__card {
+    padding-top: 3.5rem;
+  }
+
+  /* Room for the fixed language and theme buttons above the title. */
+  header {
     padding-top: 3.5rem;
   }
 

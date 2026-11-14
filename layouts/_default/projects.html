@@ -3,6 +3,7 @@
 <article class="projects-page">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
+  <h2>{{ i18n "selected-projects" }}</h2>
   <div class="cards">
     {{ range site.Data.projects.featured }}
       {{ partial "project-card.html" (dict "p" . "lang" $lang) }}
