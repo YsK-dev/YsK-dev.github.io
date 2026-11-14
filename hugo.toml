@@ -30,7 +30,7 @@ capitalizeListTitles = false
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      role = "AI Engineer · LLM, RAG, fine-tuning"
+      role = "AI Engineer · LLM, RAG, fine-tuning · Python backend"
       description = "AI engineer. I build language-model applications in Python: question answering over documents (RAG), multi-agent assistants and small fine-tuned models. I also work on Turkish NLP."
       intro = "I build practical AI systems in Python: question answering over documents with retrieval-augmented generation (RAG), multi-agent assistants, and small language models fine-tuned for a single task. I also work on Turkish-language NLP."
     [[languages.en.menu.main]]
@@ -51,7 +51,7 @@ capitalizeListTitles = false
     languageName = "TR"
     weight = 2
     [languages.tr.params]
-      role = "Yapay Zekâ Mühendisi · LLM, RAG, ince ayar"
+      role = "Yapay Zekâ Mühendisi · LLM, RAG, ince ayar · Python backend"
       description = "Yapay zekâ mühendisi. Python ile dil modeli uygulamaları geliştiriyorum: belgelerden cevap bulan sistemler (RAG), birlikte çalışan yapay zekâ ajanları ve tek bir iş için eğitilmiş küçük modeller. Türkçe metinler üzerinde de çalışıyorum."
       intro = "Python ile işe yarayan yapay zekâ sistemleri kuruyorum: belgelerinizde arama yapıp sorularınıza kaynak göstererek cevap veren sistemler (RAG), bir işi aralarında bölüşen yapay zekâ ajanları ve tek bir iş için eğitilmiş küçük dil modelleri. Türkçe metinler üzerinde de çalışıyorum."
     [[languages.tr.menu.main]]

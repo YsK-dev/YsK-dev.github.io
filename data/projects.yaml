@@ -7,8 +7,8 @@ featured:
       tr: "Yerel belge soru-cevap (RAG)"
     url: "https://github.com/YsK-dev/Rag-case-study-"
     text:
-      en: "Ask questions about your own documents, fully on your machine. It searches by meaning and by keyword, and streams each answer with its sources. A second language model scored the answers."
-      tr: "Kendi belgelerinize soru sorun; her şey kendi bilgisayarınızda çalışır. Hem anlam benzerliğine hem kelime eşleşmesine göre arar. Cevap yazıldıkça ekrana gelir ve kaynaklarını gösterir. Cevapları ikinci bir dil modeli puanladı."
+      en: "Ask questions about your own documents, fully on your machine. It searches by meaning and by keyword, reranks the results and streams each answer with its sources. Search measured on a public benchmark (SciFact): with the default settings, a correct passage is in the top 3 for 67% of 300 test claims. The test exposed a keyword-search bug, which I fixed."
+      tr: "Kendi belgelerinize soru sorun; her şey kendi bilgisayarınızda çalışır. Hem anlam benzerliğine hem kelime eşleşmesine göre arar, sonuçları yeniden sıralar. Cevap yazıldıkça ekrana gelir ve kaynaklarını gösterir. Arama kalitesi herkese açık bir test setinde (SciFact) ölçüldü: varsayılan ayarlarla 300 bilimsel iddianın %67'sinde doğru metin ilk 3 sonuç arasında. Test, kelime aramasında bir hata ortaya çıkardı; hatayı düzelttim."
     tech: ["FastAPI", "Ollama", "ChromaDB"]
 
   - title:
@@ -16,8 +16,8 @@ featured:
       tr: "Çok ajanlı asistan"
     url: "https://github.com/YsK-dev/AgentsCase"
     text:
-      en: "A supervisor agent sends each question to the agents it needs: researcher, analyst, editor. It can search the web and run Python code in a locked-down sandbox. The code has unit tests."
-      tr: "Bir yönetici ajan, her soruyu gereken ajanlara gönderir: araştırmacı, analist, editör. Sistem web'de arama yapabilir ve Python kodunu kısıtlı bir ortamda çalıştırabilir. Birim testleri vardır."
+      en: "A supervisor agent sends each question to the agents it needs: researcher, analyst, editor. It can search the web and run short Python calculations in a separate, restricted process. 83 unit tests."
+      tr: "Bir yönetici ajan, her soruyu gereken ajanlara gönderir: araştırmacı, analist, editör. Sistem web'de arama yapabilir ve kısa Python hesaplarını ayrı, kısıtlı bir süreçte çalıştırabilir. 83 birim testi vardır."
     tech: ["LangGraph", "Ollama", "SearXNG"]
 
   - title:
@@ -39,8 +39,8 @@ featured:
       tr: "Finans haberlerinde duygu analizi"
     url: "https://github.com/YsK-dev/finance-sentiment-app"
     text:
-      en: "Collects news and RSS feeds about a stock and labels each headline positive, negative or neutral with FinBERT. It can also label the transcript of a YouTube video you choose."
-      tr: "Bir hisse hakkındaki haberleri ve RSS akışlarını toplar, her başlığı FinBERT ile olumlu, olumsuz ya da nötr diye etiketler. Seçtiğiniz bir YouTube videosunun metnini de etiketleyebilir."
+      en: "Collects recent news headlines about a stock and labels each one positive, negative or neutral with FinBERT. Measured on 2,388 labelled headlines: FinBERT reaches macro F1 0.668, a simple model trained on the same kind of text 0.761."
+      tr: "Bir hisse hakkındaki son haber başlıklarını toplar, her birini FinBERT ile olumlu, olumsuz ya da nötr diye etiketler. 2.388 etiketli başlıkta ölçüldü: FinBERT 0,668 makro F1 puanı alıyor (üç etiketin ortalama başarısı); aynı tür başlıklarla eğitilen basit bir model ise 0,761 alıyor."
     tech: ["FastAPI", "React", "FinBERT"]
 
   - title:
