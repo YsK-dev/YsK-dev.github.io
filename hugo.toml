@@ -30,7 +30,7 @@ capitalizeListTitles = false
     languageName = "EN"
     weight = 1
     [languages.en.params]
-      role = "AI Engineer · LLM, RAG, fine-tuning · Python back end"
+      role = "AI Engineer · LLM, RAG, fine-tuning · Python backend"
       description = "AI engineer. I build language-model applications in Python: question answering over documents (RAG), multi-agent assistants and small fine-tuned models. I also work on Turkish NLP."
       intro = "I build practical AI systems in Python: question answering over documents with retrieval-augmented generation (RAG), multi-agent assistants, and small language models fine-tuned for a single task. I also work on Turkish-language NLP."
     [[languages.en.menu.main]]
