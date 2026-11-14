@@ -26,8 +26,8 @@ My main projects are on the [Projects](/projects/) page.
 
 ## Tools
 
-Python · PyTorch · Hugging Face Transformers · LangChain / LangGraph · Ollama · FastAPI ·
-ChromaDB · scikit-learn · PySpark · Docker · AWS
+Python · PyTorch · Hugging Face Transformers · LangChain / LangGraph · Ollama · FastAPI · React ·
+ChromaDB · scikit-learn · PySpark · Docker · GitHub Actions · AWS
 
 ## Contact
 
