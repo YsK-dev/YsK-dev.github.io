@@ -7,8 +7,8 @@ featured:
       tr: "Yerel belge soru-cevap (RAG)"
     url: "https://github.com/YsK-dev/Rag-case-study-"
     text:
-      en: "Ask questions about your own documents, fully on your machine. It searches by meaning and by keyword, reranks the results and streams each answer with its sources. Search measured on a public benchmark (SciFact): with the default settings, a correct passage is in the top 3 for 67% of 300 test claims. The test exposed a keyword-search bug, which I fixed."
-      tr: "Kendi belgelerinize soru sorun; her şey kendi bilgisayarınızda çalışır. Hem anlam benzerliğine hem kelime eşleşmesine göre arar, sonuçları yeniden sıralar. Cevap yazıldıkça ekrana gelir ve kaynaklarını gösterir. Arama kalitesi herkese açık bir test setinde (SciFact) ölçüldü: varsayılan ayarlarla 300 bilimsel iddianın %67'sinde doğru metin ilk 3 sonuç arasında. Test, kelime aramasında bir hata ortaya çıkardı; hatayı düzelttim."
+      en: "Ask questions about your own documents, fully on your machine. It searches by meaning and by keyword, reranks the results and streams each answer with its sources. Search measured on a public benchmark (SciFact): with the default settings, a correct passage is in the top 3 for 67% of 300 test claims. The test exposed a keyword-search bug, which I fixed. Measuring also led me to a better embedding model, which improves search by meaning on two separate datasets."
+      tr: "Kendi belgelerinize soru sorun; her şey kendi bilgisayarınızda çalışır. Hem anlam benzerliğine hem kelime eşleşmesine göre arar, sonuçları yeniden sıralar. Cevap yazıldıkça ekrana gelir ve kaynaklarını gösterir. Arama kalitesi herkese açık bir test setinde (SciFact) ölçüldü: varsayılan ayarlarla 300 bilimsel iddianın %67'sinde doğru metin ilk 3 sonuç arasında. Test, kelime aramasında bir hata ortaya çıkardı; hatayı düzelttim. Ölçümlerle daha iyi bir model de seçtim: anlam benzerliğiyle arama iki ayrı veri setinde de iyileşti."
     tech: ["FastAPI", "Ollama", "ChromaDB"]
 
   - title:
